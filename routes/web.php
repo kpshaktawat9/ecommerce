@@ -12,3 +12,7 @@ Route::get('/createRole/{roleName}', function ($roleName) {
     $role->slug   =  strtolower(str_replace(' ', '_', $roleName));
     $role->save();
 });
+
+Route::get('/{any}', function () {
+    return view('index');
+})->where('any', '.*');
