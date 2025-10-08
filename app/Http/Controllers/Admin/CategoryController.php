@@ -135,4 +135,11 @@ class CategoryController extends Controller
 
         return response()->json(['message' => 'Category deleted successfully']);
     }
+
+    public function getCategoryAttributes(Request $request)
+    {
+        $category = Category::with('categoryAttributes.attribute.attributeValues')->find($request->id);
+
+        return response()->json($category->categoryAttributes);
+    }
 }

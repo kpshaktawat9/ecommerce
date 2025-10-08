@@ -8,8 +8,10 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HomeBannerController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SizeController;
+use App\Http\Controllers\Admin\TaxController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -51,15 +53,26 @@ Route::middleware(['IsAdmin'])->group(function () {
     Route::post('/attribute-value-store',[AttributeValueController::class,'store'])->name('attribute-value.store');
     Route::post('/attribute-value-delete',[AttributeValueController::class,'destroy'])->name('attribute-value.delete');
     
+    // Tax
+    Route::get('/tax',[TaxController::class,'index'])->name('tax');
+    Route::post('/tax-store',[TaxController::class,'store'])->name('tax.store');
+    Route::post('/tax-delete',[TaxController::class,'destroy'])->name('tax.delete');
+    
     // Category
     Route::get('/category',[CategoryController::class,'index'])->name('category');
     Route::post('/category-store',[CategoryController::class,'store'])->name('category.store');
     Route::post('/category-delete',[CategoryController::class,'destroy'])->name('category.delete');
+    Route::post('/get-attributes',[CategoryController::class,'getCategoryAttributes'])->name('category.get-attributes');
     
     // Category Attribute
     Route::get('/category-attribute',[CategoryAttributeController::class,'index'])->name('category-attribute');
     Route::post('/category-attribute-store',[CategoryAttributeController::class,'store'])->name('category-attribute.store');
     Route::post('/category-attribute-delete',[CategoryAttributeController::class,'destroy'])->name('category-attribute.delete');
+    
+    // Product
+    Route::get('/product',[ProductController::class,'index'])->name('product');
+    Route::post('/product-store',[ProductController::class,'store'])->name('product.store');
+    Route::post('/product-delete',[ProductController::class,'destroy'])->name('product.delete');
 
 
     // logout

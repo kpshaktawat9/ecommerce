@@ -85,6 +85,13 @@
             </a>
         </li>
         <li>
+            <a href="{{route('admin.tax')}}">
+                <div class="parent-icon"><i class='bx bx-cookie'></i>
+                </div>
+                <div class="menu-title">Tax</div>
+            </a>
+        </li>
+        <li>
             <a href="{{route('admin.category')}}">
                 <div class="parent-icon"><i class='bx bx-cookie'></i>
                 </div>
